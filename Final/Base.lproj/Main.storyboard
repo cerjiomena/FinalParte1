@@ -152,13 +152,23 @@
                                     <action selector="dismissModalView" destination="qJU-90-20U" eventType="touchUpInside" id="8Mo-aT-0PM"/>
                                 </connections>
                             </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="43n-CQ-5En">
+                                <rect key="frame" x="0.0" y="68" width="600" height="532"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="UFE-vf-iyw" firstAttribute="leading" secondItem="MrN-3K-mSq" secondAttribute="leadingMargin" id="8SZ-0e-Zt2"/>
+                            <constraint firstItem="43n-CQ-5En" firstAttribute="bottom" secondItem="Oh5-Gx-bHk" secondAttribute="top" id="DrE-wS-g4n"/>
+                            <constraint firstAttribute="trailing" secondItem="43n-CQ-5En" secondAttribute="trailing" id="HcI-2m-fLU"/>
+                            <constraint firstItem="43n-CQ-5En" firstAttribute="leading" secondItem="MrN-3K-mSq" secondAttribute="leading" id="T2n-T4-qIf"/>
                             <constraint firstItem="UFE-vf-iyw" firstAttribute="top" secondItem="MME-tk-Y5K" secondAttribute="bottom" constant="8" id="UMS-CN-cgJ"/>
+                            <constraint firstItem="43n-CQ-5En" firstAttribute="top" secondItem="UFE-vf-iyw" secondAttribute="bottom" constant="8" symbolic="YES" id="tYg-q8-4pG"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapa" destination="43n-CQ-5En" id="ti2-cu-WnQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q6x-lB-ktx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
