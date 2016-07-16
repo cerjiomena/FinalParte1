@@ -20,6 +20,7 @@ class RutaViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     var pin : MKPointAnnotation!
     private var origen: MKMapItem!
     private var destino: MKMapItem!
+    private var contadorPines: Int = 0
     
     private let reuseIdentifier = "miIdentificador"
 
@@ -93,6 +94,8 @@ class RutaViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
         
+       
+        
         let alerta = UIAlertController(title: "Error", message: "error \(error.code)", preferredStyle: .Alert)
         
         let accionOK = UIAlertAction(title: "OK", style: .Default, handler: {accion in
@@ -101,7 +104,11 @@ class RutaViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         
         alerta.addAction(accionOK)
         
+        
+       
         self.presentViewController(alerta, animated: true, completion: nil)
+        
+        
     }
     
 
@@ -114,11 +121,6 @@ class RutaViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         // Pass the selected object to the new view controller.
     }
     */
-
-    @IBAction func dismissModalView() {
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
     
     func obtenerRuta(origen: MKMapItem, destino: MKMapItem) {
         
@@ -184,16 +186,76 @@ class RutaViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     }
     
     
+    /* Metodo para poner el pin en pantalla */
     func tapMap(gestureRecognizer:UIGestureRecognizer){
         let touchPoint = gestureRecognizer.locationInView(self.mapa)
         let newCoord:CLLocationCoordinate2D = mapa.convertPoint(touchPoint, toCoordinateFromView: self.mapa)
         
         let newAnotation = MKPointAnnotation()
         newAnotation.coordinate = newCoord
-        newAnotation.title = "Nueva Loc"
-        newAnotation.subtitle = "New Subtitle"
+      
+        contadorPines += 1
+        newAnotation.title = "Punto \(contadorPines)"
         mapa.addAnnotation(newAnotation)
     }
     
+    
+    
+    @IBAction func showPicsOptions(sender: AnyObject) {
+        
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let fvc: FotosViewController = storyboard.instantiateViewControllerWithIdentifier("Fotos") as! FotosViewController
+        fvc.view.backgroundColor = UIColor.darkGrayColor()
+        fvc.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
+        
+        self.presentViewController(fvc, animated: true, completion: nil)
+    }
+    
+    @IBAction func showRouteOptions(sender: AnyObject) {
+        
+        // 1
+        let optionMenu = UIAlertController(title: nil, message: "Elige opción", preferredStyle: .ActionSheet)
+        
+        // 2
+        let seeAction = UIAlertAction(title: "Ver rutas", style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            print("File Deleted")
+            
+            let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let fvc: FotosViewController = storyboard.instantiateViewControllerWithIdentifier("Fotos") as! FotosViewController
+            fvc.view.backgroundColor = UIColor.darkGrayColor()
+            fvc.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
+            
+            self.presentViewController(fvc, animated: true, completion: nil)
+
+        })
+        let saveAction = UIAlertAction(title: "Guardar ruta", style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            
+            let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let rpvc: RutaPersistViewController = storyboard.instantiateViewControllerWithIdentifier("rutaPersistente") as! RutaPersistViewController
+            rpvc.view.backgroundColor = UIColor.darkGrayColor()
+            rpvc.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
+            
+            self.presentViewController(rpvc, animated: true, completion: nil)
+            
+
+        })
+        
+        //
+        let cancelAction = UIAlertAction(title: "Cancelar", style: .Cancel, handler: {
+            (alert: UIAlertAction!) -> Void in
+            print("Cancelled")
+        })
+        
+        
+        // 4
+        optionMenu.addAction(saveAction)
+        optionMenu.addAction(seeAction)
+        optionMenu.addAction(cancelAction)
+        
+        // 5
+        self.presentViewController(optionMenu, animated: true, completion: nil)
+    }
 
 }
