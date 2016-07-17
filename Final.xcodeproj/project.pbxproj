@@ -10,7 +10,6 @@
 		9B0C8A611D353E2700C3458B /* ListadoRutasController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0C8A601D353E2700C3458B /* ListadoRutasController.swift */; };
 		9B0C8A631D3552E700C3458B /* RutaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0C8A621D3552E700C3458B /* RutaViewController.swift */; };
 		9B2FC1DD1D32FAF300ED63CD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2FC1DC1D32FAF300ED63CD /* ViewController.swift */; };
-		9B2FC1E01D32FAF300ED63CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B2FC1DE1D32FAF300ED63CD /* Main.storyboard */; };
 		9B2FC1E21D32FAF300ED63CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B2FC1E11D32FAF300ED63CD /* Assets.xcassets */; };
 		9B2FC1E51D32FAF300ED63CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B2FC1E31D32FAF300ED63CD /* LaunchScreen.storyboard */; };
 		9B2FC1EA1D32FAF300ED63CD /* Final WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 9B2FC1E91D32FAF300ED63CD /* Final WatchKit App.app */; };
@@ -31,6 +30,10 @@
 		9BA5B5591D396B040011A30C /* Rutas.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9BA5B5571D396B040011A30C /* Rutas.xcdatamodeld */; };
 		9BA5B55A1D396B040011A30C /* Rutas.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9BA5B5571D396B040011A30C /* Rutas.xcdatamodeld */; };
 		9BA5B55C1D396CCA0011A30C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA5B55B1D396CCA0011A30C /* AppDelegate.swift */; };
+		9BA5B55E1D3B615F0011A30C /* NVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA5B55D1D3B615F0011A30C /* NVC.swift */; };
+		9BA5B5601D3B642B0011A30C /* VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA5B55F1D3B642B0011A30C /* VC.swift */; };
+		9BA5B5621D3B68010011A30C /* CapturaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA5B5611D3B68010011A30C /* CapturaViewController.swift */; };
+		9BA5B5641D3B705B0011A30C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BA5B5631D3B705B0011A30C /* Main.storyboard */; };
 		9BEF281C1D38B28900EB4A31 /* QRblue.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BEF281B1D38B28900EB4A31 /* QRblue.png */; };
 		9BEF281E1D38B49300EB4A31 /* Mapablue.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BEF281D1D38B49300EB4A31 /* Mapablue.png */; };
 /* End PBXBuildFile section */
@@ -82,7 +85,6 @@
 		9B0C8A621D3552E700C3458B /* RutaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RutaViewController.swift; sourceTree = "<group>"; };
 		9B2FC1D71D32FAF300ED63CD /* Final.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Final.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B2FC1DC1D32FAF300ED63CD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		9B2FC1DF1D32FAF300ED63CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9B2FC1E11D32FAF300ED63CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9B2FC1E41D32FAF300ED63CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9B2FC1E61D32FAF300ED63CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -105,6 +107,10 @@
 		9BA5B5511D395D1C0011A30C /* RutaPersistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RutaPersistViewController.swift; sourceTree = "<group>"; };
 		9BA5B5581D396B040011A30C /* Rutas.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Rutas.xcdatamodel; sourceTree = "<group>"; };
 		9BA5B55B1D396CCA0011A30C /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9BA5B55D1D3B615F0011A30C /* NVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVC.swift; sourceTree = "<group>"; };
+		9BA5B55F1D3B642B0011A30C /* VC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VC.swift; sourceTree = "<group>"; };
+		9BA5B5611D3B68010011A30C /* CapturaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapturaViewController.swift; sourceTree = "<group>"; };
+		9BA5B5631D3B705B0011A30C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		9BEF281B1D38B28900EB4A31 /* QRblue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = QRblue.png; sourceTree = "<group>"; };
 		9BEF281D1D38B49300EB4A31 /* Mapablue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Mapablue.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -152,7 +158,7 @@
 			children = (
 				9B2FC2111D33599A00ED63CD /* images */,
 				9B2FC1DC1D32FAF300ED63CD /* ViewController.swift */,
-				9B2FC1DE1D32FAF300ED63CD /* Main.storyboard */,
+				9BA5B5631D3B705B0011A30C /* Main.storyboard */,
 				9B2FC1E11D32FAF300ED63CD /* Assets.xcassets */,
 				9B2FC1E31D32FAF300ED63CD /* LaunchScreen.storyboard */,
 				9B2FC1E61D32FAF300ED63CD /* Info.plist */,
@@ -162,6 +168,9 @@
 				9BA5B5511D395D1C0011A30C /* RutaPersistViewController.swift */,
 				9BA5B5571D396B040011A30C /* Rutas.xcdatamodeld */,
 				9BA5B55B1D396CCA0011A30C /* AppDelegate.swift */,
+				9BA5B55D1D3B615F0011A30C /* NVC.swift */,
+				9BA5B55F1D3B642B0011A30C /* VC.swift */,
+				9BA5B5611D3B68010011A30C /* CapturaViewController.swift */,
 			);
 			path = Final;
 			sourceTree = "<group>";
@@ -310,10 +319,10 @@
 				9BA5B54C1D393DAF0011A30C /* camara-blancox64.png in Resources */,
 				9BA5B54A1D3939700011A30C /* albums-blanco-64.png in Resources */,
 				9B2FC1E51D32FAF300ED63CD /* LaunchScreen.storyboard in Resources */,
+				9BA5B5641D3B705B0011A30C /* Main.storyboard in Resources */,
 				9B2FC1E21D32FAF300ED63CD /* Assets.xcassets in Resources */,
 				9BA5B54E1D393FDE0011A30C /* default-placeholder.png in Resources */,
 				9B2FC2131D3359C100ED63CD /* dismiss-small.png in Resources */,
-				9B2FC1E01D32FAF300ED63CD /* Main.storyboard in Resources */,
 				9BEF281E1D38B49300EB4A31 /* Mapablue.png in Resources */,
 				9B2FC2171D3359E100ED63CD /* qr-blanco-256.png in Resources */,
 			);
@@ -344,8 +353,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B0C8A611D353E2700C3458B /* ListadoRutasController.swift in Sources */,
+				9BA5B5621D3B68010011A30C /* CapturaViewController.swift in Sources */,
 				9BA5B5521D395D1C0011A30C /* RutaPersistViewController.swift in Sources */,
+				9BA5B5601D3B642B0011A30C /* VC.swift in Sources */,
 				9BA5B5591D396B040011A30C /* Rutas.xcdatamodeld in Sources */,
+				9BA5B55E1D3B615F0011A30C /* NVC.swift in Sources */,
 				9B2FC1DD1D32FAF300ED63CD /* ViewController.swift in Sources */,
 				9BA5B55C1D396CCA0011A30C /* AppDelegate.swift in Sources */,
 				9B0C8A631D3552E700C3458B /* RutaViewController.swift in Sources */,
@@ -379,14 +391,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		9B2FC1DE1D32FAF300ED63CD /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9B2FC1DF1D32FAF300ED63CD /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		9B2FC1E31D32FAF300ED63CD /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
