@@ -16,6 +16,8 @@ class FotosViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     private let miPicker = UIImagePickerController()
     
+    weak var rutaPersistViewController: RutaPersistViewController?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +28,9 @@ class FotosViewController: UIViewController, UIImagePickerControllerDelegate, UI
             camaraBoton.enabled = false
         }
         miPicker.delegate = self
+        if(rutaPersistViewController!.fotoVista.image != nil) {
+            self.fotoVista.image = rutaPersistViewController!.fotoVista.image
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,7 +53,8 @@ class FotosViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     
     @IBAction func dismissModalView(sender: AnyObject) {
-          self.dismissViewControllerAnimated(true, completion: nil)
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
@@ -67,16 +73,8 @@ class FotosViewController: UIViewController, UIImagePickerControllerDelegate, UI
 
     @IBAction func guardar(sender: AnyObject) {
         
-        UIImageWriteToSavedPhotosAlbum(fotoVista.image!, nil, nil, nil)
-        
-        let alerta = UIAlertController(title: "Listo!", message: "Foto guardada en el álbum", preferredStyle: .Alert)
-        
-        let accionOK = UIAlertAction(title: "OK", style: .Default, handler: {accion in //...
-        })
-        
-        alerta.addAction(accionOK)
-        
-        self.presentViewController(alerta, animated: true, completion: nil)
+        rutaPersistViewController?.fotoVista.image =  fotoVista.image
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     /*
     // MARK: - Navigation

@@ -15,6 +15,8 @@ class RutaPersistViewController: UIViewController,  UITextViewDelegate {
     
     @IBOutlet weak var descRuta: UITextView!
     
+    @IBOutlet weak var fotoVista: UIImageView!
+    
     var contexto : NSManagedObjectContext? = nil
 
     override func viewDidLoad() {
@@ -37,6 +39,7 @@ class RutaPersistViewController: UIViewController,  UITextViewDelegate {
         
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let fvc: FotosViewController = storyboard.instantiateViewControllerWithIdentifier("Fotos") as! FotosViewController
+        fvc.rutaPersistViewController = self
         fvc.view.backgroundColor = UIColor.darkGrayColor()
         fvc.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
         
@@ -52,6 +55,8 @@ class RutaPersistViewController: UIViewController,  UITextViewDelegate {
         
         nuevaRuta.setValue(nombreRuta.text, forKey: "nombre")
         nuevaRuta.setValue(descRuta.text, forKey: "descripcion")
+       
+        nuevaRuta.setValue(UIImageJPEGRepresentation(self.fotoVista.image!, 1.0), forKey: "foto")
         
         do {
             try self.contexto?.save()
@@ -60,6 +65,7 @@ class RutaPersistViewController: UIViewController,  UITextViewDelegate {
             
             let accionOK = UIAlertAction(title: "OK", style: .Default, handler: {accion in
                 
+                self.dismissViewControllerAnimated(true, completion: nil)
             })
             
             alerta.addAction(accionOK)
@@ -98,14 +104,14 @@ class RutaPersistViewController: UIViewController,  UITextViewDelegate {
        
     }
     
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    /*override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        let sigVista = segue.destinationViewController as! FotosViewController
+        
+        sigVista.rutaPersistViewController = self
+        
+    }*/
+    
 
 }
