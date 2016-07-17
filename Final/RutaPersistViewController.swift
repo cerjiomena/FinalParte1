@@ -17,6 +17,8 @@ class RutaPersistViewController: UIViewController,  UITextViewDelegate {
     
     @IBOutlet weak var fotoVista: UIImageView!
     
+    weak var rutaViewController: RutaViewController?
+    
     var contexto : NSManagedObjectContext? = nil
 
     override func viewDidLoad() {
@@ -26,9 +28,22 @@ class RutaPersistViewController: UIViewController,  UITextViewDelegate {
         self.contexto = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
         
         descRuta.delegate = self
+        
+        
        
 
     }
+    
+    /*override func viewDidAppear(animated: Bool) {
+        if(rutaViewController?.puntosColeccion != nil && rutaViewController?.puntosColeccion.count > 0) {
+           
+            for (i,row) in (rutaViewController?.puntosColeccion.enumerate())! {
+                for (j,cell) in row.enumerate() {
+                    print("m[\(i),\(j)] = \(cell)")
+                }
+            }
+        }
+    }*/
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -57,6 +72,30 @@ class RutaPersistViewController: UIViewController,  UITextViewDelegate {
         nuevaRuta.setValue(descRuta.text, forKey: "descripcion")
        
         nuevaRuta.setValue(UIImageJPEGRepresentation(self.fotoVista.image!, 1.0), forKey: "foto")
+        
+        if(rutaViewController?.puntosColeccion != nil && rutaViewController?.puntosColeccion.count > 0) {
+            
+            for (i,row) in (rutaViewController?.puntosColeccion.enumerate())! {
+                let nuevaPosicionEntidad = NSEntityDescription.entityForName("Posicion", inManagedObjectContext: self.contexto!)
+                let nuevaPosicion = NSManagedObject(entity: nuevaPosicionEntidad!, insertIntoManagedObjectContext: self.contexto)
+                nuevaPosicion.setValue(rutaViewController?.puntosNombres[i], forKey: "nombre")
+                for (j,cell) in row.enumerate() {
+
+
+                    if(j==0) {
+                        nuevaPosicion.setValue(cell, forKey: "latitud")
+                    } else {
+                        nuevaPosicion.setValue(cell, forKey: "longitud")
+                    }
+                    
+                    
+                }
+               
+                
+                nuevaRuta.setValue(NSSet(objects: nuevaPosicion), forKey: "posiciones")
+            }
+
+        }
         
         do {
             try self.contexto?.save()

@@ -23,7 +23,9 @@ class RutaViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     private var contadorPines: Int = 0
     
     private let reuseIdentifier = "miIdentificador"
-
+    
+    var puntosColeccion :Array<Array<Double>> = []
+    var puntosNombres : Array<String> = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +38,7 @@ class RutaViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         punto = CLLocationCoordinate2D()
         distanciaRecorrida = 0.0
         pin = nil
+        //para agregar los pines
         let tap = UILongPressGestureRecognizer(target: self, action: #selector(RutaViewController.tapMap))
         tap.minimumPressDuration = 0.2
         mapa.addGestureRecognizer(tap)
@@ -197,6 +200,10 @@ class RutaViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         contadorPines += 1
         newAnotation.title = "Punto \(contadorPines)"
         mapa.addAnnotation(newAnotation)
+        
+        let nuevoPunto = [newCoord.latitude, newCoord.longitude]
+        puntosNombres.append(newAnotation.title!)
+        puntosColeccion.append(nuevoPunto)
     }
     
     
@@ -234,6 +241,7 @@ class RutaViewController: UIViewController, CLLocationManagerDelegate, MKMapView
             
             let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let rpvc: RutaPersistViewController = storyboard.instantiateViewControllerWithIdentifier("rutaPersistente") as! RutaPersistViewController
+            rpvc.rutaViewController = self
             rpvc.view.backgroundColor = UIColor.darkGrayColor()
             rpvc.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
             
