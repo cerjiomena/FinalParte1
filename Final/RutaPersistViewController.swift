@@ -73,29 +73,40 @@ class RutaPersistViewController: UIViewController,  UITextViewDelegate {
        
         nuevaRuta.setValue(UIImageJPEGRepresentation(self.fotoVista.image!, 1.0), forKey: "foto")
         
+        var bufferPosiciones: String = ""
         if(rutaViewController?.puntosColeccion != nil && rutaViewController?.puntosColeccion.count > 0) {
             
             for (i,row) in (rutaViewController?.puntosColeccion.enumerate())! {
-                let nuevaPosicionEntidad = NSEntityDescription.entityForName("Posicion", inManagedObjectContext: self.contexto!)
-                let nuevaPosicion = NSManagedObject(entity: nuevaPosicionEntidad!, insertIntoManagedObjectContext: self.contexto)
-                nuevaPosicion.setValue(rutaViewController?.puntosNombres[i], forKey: "nombre")
+                                
+                bufferPosiciones += "\(rutaViewController!.puntosNombres[i]),"
+                
                 for (j,cell) in row.enumerate() {
 
+                    
 
                     if(j==0) {
-                        nuevaPosicion.setValue(cell, forKey: "latitud")
+                        bufferPosiciones += "\(cell),"
+                        //nuevaPosicion.setValue(cell, forKey: "latitud")
                     } else {
-                        nuevaPosicion.setValue(cell, forKey: "longitud")
+                        bufferPosiciones += "\(cell)"
+                        //nuevaPosicion.setValue(cell, forKey: "longitud")
                     }
                     
                     
                 }
-               
                 
-                nuevaRuta.setValue(NSSet(objects: nuevaPosicion), forKey: "posiciones")
+                if(((rutaViewController?.puntosColeccion.count)!-1) != i) {
+                    bufferPosiciones += "|"
+                }
+               
+
             }
+            
+             nuevaRuta.setValue(bufferPosiciones, forKey: "ruta")
 
         }
+    
+        
         
         do {
             try self.contexto?.save()

@@ -226,14 +226,21 @@ class RutaViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         // 2
         let seeAction = UIAlertAction(title: "Ver rutas", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
-            print("File Deleted")
             
             let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let fvc: FotosViewController = storyboard.instantiateViewControllerWithIdentifier("Fotos") as! FotosViewController
-            fvc.view.backgroundColor = UIColor.darkGrayColor()
-            fvc.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
             
-            self.presentViewController(fvc, animated: true, completion: nil)
+            
+            let lvc: UINavigationController = storyboard.instantiateViewControllerWithIdentifier("navListadoRutas") as! UINavigationController
+             lvc.view.backgroundColor = UIColor.darkGrayColor()
+             lvc.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
+             
+             self.presentViewController(lvc, animated: true, completion: nil)
+            
+            /*let lvc: ListadoRutasController = storyboard.instantiateViewControllerWithIdentifier("listadoRutas") as! ListadoRutasController
+            lvc.view.backgroundColor = UIColor.darkGrayColor()
+            lvc.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
+            
+            self.presentViewController(lvc, animated: true, completion: nil)*/
 
         })
         let saveAction = UIAlertAction(title: "Guardar ruta", style: .Default, handler: {

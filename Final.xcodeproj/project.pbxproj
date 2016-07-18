@@ -34,6 +34,9 @@
 		9BA5B5601D3B642B0011A30C /* VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA5B55F1D3B642B0011A30C /* VC.swift */; };
 		9BA5B5621D3B68010011A30C /* CapturaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA5B5611D3B68010011A30C /* CapturaViewController.swift */; };
 		9BA5B5641D3B705B0011A30C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BA5B5631D3B705B0011A30C /* Main.storyboard */; };
+		9BA5B56A1D3C2A780011A30C /* DetalleInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA5B5691D3C2A780011A30C /* DetalleInterfaceController.swift */; };
+		9BA5B56B1D3C31E10011A30C /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B2FC1EE1D32FAF400ED63CD /* Interface.storyboard */; };
+		9BA5B56E1D3CB3E40011A30C /* DetalleRutaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA5B56D1D3CB3E40011A30C /* DetalleRutaViewController.swift */; };
 		9BEF281C1D38B28900EB4A31 /* QRblue.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BEF281B1D38B28900EB4A31 /* QRblue.png */; };
 		9BEF281E1D38B49300EB4A31 /* Mapablue.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BEF281D1D38B49300EB4A31 /* Mapablue.png */; };
 /* End PBXBuildFile section */
@@ -111,6 +114,9 @@
 		9BA5B55F1D3B642B0011A30C /* VC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VC.swift; sourceTree = "<group>"; };
 		9BA5B5611D3B68010011A30C /* CapturaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapturaViewController.swift; sourceTree = "<group>"; };
 		9BA5B5631D3B705B0011A30C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		9BA5B5691D3C2A780011A30C /* DetalleInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetalleInterfaceController.swift; sourceTree = "<group>"; };
+		9BA5B56C1D3C4A3C0011A30C /* Final.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Final.entitlements; sourceTree = "<group>"; };
+		9BA5B56D1D3CB3E40011A30C /* DetalleRutaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetalleRutaViewController.swift; sourceTree = "<group>"; };
 		9BEF281B1D38B28900EB4A31 /* QRblue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = QRblue.png; sourceTree = "<group>"; };
 		9BEF281D1D38B49300EB4A31 /* Mapablue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Mapablue.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -156,6 +162,7 @@
 		9B2FC1D91D32FAF300ED63CD /* Final */ = {
 			isa = PBXGroup;
 			children = (
+				9BA5B56C1D3C4A3C0011A30C /* Final.entitlements */,
 				9B2FC2111D33599A00ED63CD /* images */,
 				9B2FC1DC1D32FAF300ED63CD /* ViewController.swift */,
 				9BA5B5631D3B705B0011A30C /* Main.storyboard */,
@@ -171,6 +178,7 @@
 				9BA5B55D1D3B615F0011A30C /* NVC.swift */,
 				9BA5B55F1D3B642B0011A30C /* VC.swift */,
 				9BA5B5611D3B68010011A30C /* CapturaViewController.swift */,
+				9BA5B56D1D3CB3E40011A30C /* DetalleRutaViewController.swift */,
 			);
 			path = Final;
 			sourceTree = "<group>";
@@ -192,6 +200,7 @@
 				9B2FC1FF1D32FAF400ED63CD /* ExtensionDelegate.swift */,
 				9B2FC2011D32FAF400ED63CD /* Assets.xcassets */,
 				9B2FC2031D32FAF400ED63CD /* Info.plist */,
+				9BA5B5691D3C2A780011A30C /* DetalleInterfaceController.swift */,
 			);
 			path = "Final WatchKit Extension";
 			sourceTree = "<group>";
@@ -280,6 +289,11 @@
 					9B2FC1D61D32FAF300ED63CD = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = T32RH4FSVK;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 					9B2FC1E81D32FAF300ED63CD = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -341,6 +355,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BA5B56B1D3C31E10011A30C /* Interface.storyboard in Resources */,
 				9B2FC2021D32FAF400ED63CD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -360,6 +375,7 @@
 				9BA5B55E1D3B615F0011A30C /* NVC.swift in Sources */,
 				9B2FC1DD1D32FAF300ED63CD /* ViewController.swift in Sources */,
 				9BA5B55C1D396CCA0011A30C /* AppDelegate.swift in Sources */,
+				9BA5B56E1D3CB3E40011A30C /* DetalleRutaViewController.swift in Sources */,
 				9B0C8A631D3552E700C3458B /* RutaViewController.swift in Sources */,
 				9BA5B5501D39448D0011A30C /* FotosViewController.swift in Sources */,
 			);
@@ -371,6 +387,7 @@
 			files = (
 				9BA5B55A1D396B040011A30C /* Rutas.xcdatamodeld in Sources */,
 				9B2FC2001D32FAF400ED63CD /* ExtensionDelegate.swift in Sources */,
+				9BA5B56A1D3C2A780011A30C /* DetalleInterfaceController.swift in Sources */,
 				9B2FC1FE1D32FAF400ED63CD /* InterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -431,6 +448,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -478,6 +496,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -561,6 +580,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Final/Final.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Final/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -573,6 +593,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Final/Final.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Final/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
