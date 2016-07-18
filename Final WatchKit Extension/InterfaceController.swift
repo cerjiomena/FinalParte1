@@ -7,25 +7,20 @@
 //
 
 import WatchKit
+import WatchConnectivity
 import Foundation
-import CoreData
 
 
-class InterfaceController: WKInterfaceController {
+class InterfaceController: WKInterfaceController, WCSessionDelegate {
 
-    @IBOutlet var itemPicker: WKInterfacePicker!
+
+    var watchSession : WCSession?
+    var ventana = MKCoordinateSpanMake(0.005, 0.005)
     
-    var foodList: [(String, String)] = [
-        ("Broccoli", "Gross"),
-        ("Brussel Sprouts", "Gross"),
-        ("Soup", "Delicious"),
-        ("Steak", "Delicious"),
-        ("Ramen", "Delicious"),
-        ("Pizza", "Delicious") ]
+    @IBOutlet var mapa: WKInterfaceMap!
     
-     var contexto : NSManagedObjectContext? = nil
+    var rutas : String?
 
-    
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         
@@ -34,41 +29,22 @@ class InterfaceController: WKInterfaceController {
 
     }
     
+    @IBAction func zoom(value: Float) {
+        let grados:CLLocationDegrees = CLLocationDegrees(value)/10
+        ventana = MKCoordinateSpanMake(grados, grados)
+    }
 
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
         
-        let fetchRequest = NSFetchRequest(entityName: "Ruta")
-        
-        //var rutas = try contexto!.executeFetchRequest(fetchRequest)
-        
-        
-        do {
-            let rutas =  try contexto!.executeFetchRequest(fetchRequest)
-            print("*********")
-            print(rutas.count)
-
-            
-        } catch let error as NSError {
-            
-            print("retrieve failed: \(error.localizedDescription)")
-            abort()
+    if(WCSession.isSupported()){
+            watchSession = WCSession.defaultSession()
+            // Add self as a delegate of the session so we can handle messages
+            watchSession!.delegate = self
+            watchSession!.activateSession()
         }
 
-        
-        
-        
-        
-       
-        
-        let pickerItems: [WKPickerItem] = foodList.map {
-            let pickerItem = WKPickerItem()
-            pickerItem.title = $0.0
-            pickerItem.caption = $0.1
-            return pickerItem
-        }
-        itemPicker.setItems(pickerItems)
         
     }
 
@@ -77,11 +53,75 @@ class InterfaceController: WKInterfaceController {
         super.didDeactivate()
     }
     
-    @IBAction func pickerSelectedItemChanged(value: Int) {
+    /*func session(session: WCSession, didReceiveApplicationContext applicationContext: [String : AnyObject]) {
+        <#code#>
+    }*/
+    
+    func session(session: WCSession, didReceiveApplicationContext applicationContext: [String : AnyObject]){
+
+        self.rutas  = applicationContext["message"] as? String
+        desglosarPuntos()
         
-        NSLog("List Picker: \(foodList[value].0) selected")
-        pushControllerWithName("detalleWK", context: nil)
     }
+    
+    func desglosarPuntos() {
+        
+        let arreglo = self.rutas?.componentsSeparatedByString("|")
+        //var origen: MKMapItem!
+        //var destino: MKMapItem!
+        
+        
+        for i in (0..<arreglo!.count-1) {
+            
+            obtenerPunto(arreglo![i])
+            
+            /*if( arreglo!.count > 1) {
+                
+                destino = self.obtenerPunto(arreglo![i+1])
+                
+            } else {
+                
+                destino = origen
+                
+                
+            }*/
+            //origenCentral = origen
+            //self.obtenerRuta(origen!, destino:  destino!)
+            
+        }
+        
+    }
+    
+    func obtenerPunto(row: String) -> MKMapItem {
+        
+        var origen: MKMapItem!
+        
+        var columna = row.componentsSeparatedByString(",")
+        
+        let puntoCoor = CLLocationCoordinate2D(latitude: Double(columna[1])!, longitude:  Double(columna[2])!)
+        let puntoLugar = MKPlacemark(coordinate: puntoCoor, addressDictionary: nil)
+        origen = MKMapItem(placemark: puntoLugar)
+        origen.name = columna[0]
+        
+        self.anotaPunto(origen)
+        
+        return origen
+        
+    }
+    
+    func anotaPunto(punto: MKMapItem) {
+        let puntoCoor = CLLocationCoordinate2D(latitude: punto.placemark.coordinate.latitude, longitude:  punto.placemark.coordinate.longitude)
+        
+        mapa.addAnnotation(puntoCoor, withPinColor:.Purple)
+        let region = MKCoordinateRegionMake(puntoCoor, ventana)
+        mapa.setRegion(region)
+    }
+    
+    
+   
+
+
+
     
 
 }

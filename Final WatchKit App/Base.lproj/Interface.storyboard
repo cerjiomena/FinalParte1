@@ -10,33 +10,19 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Final_WatchKit_App" customModuleProvider="target">
                     <items>
-                        <label width="136" alignment="left" text="Listado rutas" id="EgO-Xl-Zcb"/>
-                        <picker height="100" alignment="left" id="nec-SS-Xwd">
+                        <map height="100" alignment="left" id="LAN-Mp-HxS"/>
+                        <slider width="1" alignment="left" value="1" maximum="3" steps="3" id="6JW-tz-jFr">
                             <connections>
-                                <action selector="pickerSelectedItemChanged:" destination="AgC-eL-Hgc" id="uJ0-L4-t7a"/>
+                                <action selector="zoom:" destination="AgC-eL-Hgc" id="TdC-mM-haT"/>
                             </connections>
-                        </picker>
+                        </slider>
                     </items>
                     <connections>
-                        <outlet property="itemPicker" destination="nec-SS-Xwd" id="fgl-k4-wYj"/>
+                        <outlet property="mapa" destination="LAN-Mp-HxS" id="yNr-ro-mdS"/>
                     </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="347" y="309"/>
-        </scene>
-        <!--detalleWK-->
-        <scene sceneID="ROa-Su-xcf">
-            <objects>
-                <controller identifier="detalleWK" id="pz4-oO-Rgv" customClass="DetalleInterfaceController" customModule="Final_WatchKit_Extension">
-                    <items>
-                        <map height="100" alignment="left" isAccessibilityElement="YES" id="x7Z-nJ-ulA"/>
-                    </items>
-                    <connections>
-                        <outlet property="mapObject" destination="x7Z-nJ-ulA" id="dad-XV-OeD"/>
-                    </connections>
-                </controller>
-            </objects>
-            <point key="canvasLocation" x="572" y="309"/>
         </scene>
     </scenes>
 </document>

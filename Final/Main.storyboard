@@ -88,6 +88,9 @@
                                     <barButtonItem width="114" style="plain" systemItem="fixedSpace" id="fHA-jd-ltR"/>
                                     <barButtonItem title="Ver en  Watch" id="JUi-hO-slO">
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="enviarW:" destination="3Eg-CM-1jB" id="2N4-fD-ZXL"/>
+                                        </connections>
                                     </barButtonItem>
                                 </items>
                                 <color key="barTintColor" white="0.4170399904" alpha="1" colorSpace="calibratedWhite"/>

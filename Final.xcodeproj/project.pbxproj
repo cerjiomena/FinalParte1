@@ -34,9 +34,11 @@
 		9BA5B5601D3B642B0011A30C /* VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA5B55F1D3B642B0011A30C /* VC.swift */; };
 		9BA5B5621D3B68010011A30C /* CapturaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA5B5611D3B68010011A30C /* CapturaViewController.swift */; };
 		9BA5B5641D3B705B0011A30C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BA5B5631D3B705B0011A30C /* Main.storyboard */; };
-		9BA5B56A1D3C2A780011A30C /* DetalleInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA5B5691D3C2A780011A30C /* DetalleInterfaceController.swift */; };
 		9BA5B56B1D3C31E10011A30C /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B2FC1EE1D32FAF400ED63CD /* Interface.storyboard */; };
 		9BA5B56E1D3CB3E40011A30C /* DetalleRutaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA5B56D1D3CB3E40011A30C /* DetalleRutaViewController.swift */; };
+		9BA5B5721D3D59F00011A30C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BA5B5711D3D59F00011A30C /* MapKit.framework */; };
+		9BA5B5741D3D62800011A30C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BA5B5731D3D62800011A30C /* CoreLocation.framework */; };
+		9BA5B5761D3D62940011A30C /* WatchConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BA5B5751D3D62940011A30C /* WatchConnectivity.framework */; };
 		9BEF281C1D38B28900EB4A31 /* QRblue.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BEF281B1D38B28900EB4A31 /* QRblue.png */; };
 		9BEF281E1D38B49300EB4A31 /* Mapablue.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BEF281D1D38B49300EB4A31 /* Mapablue.png */; };
 /* End PBXBuildFile section */
@@ -114,9 +116,11 @@
 		9BA5B55F1D3B642B0011A30C /* VC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VC.swift; sourceTree = "<group>"; };
 		9BA5B5611D3B68010011A30C /* CapturaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapturaViewController.swift; sourceTree = "<group>"; };
 		9BA5B5631D3B705B0011A30C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		9BA5B5691D3C2A780011A30C /* DetalleInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetalleInterfaceController.swift; sourceTree = "<group>"; };
 		9BA5B56C1D3C4A3C0011A30C /* Final.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Final.entitlements; sourceTree = "<group>"; };
 		9BA5B56D1D3CB3E40011A30C /* DetalleRutaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetalleRutaViewController.swift; sourceTree = "<group>"; };
+		9BA5B5711D3D59F00011A30C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		9BA5B5731D3D62800011A30C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		9BA5B5751D3D62940011A30C /* WatchConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchConnectivity.framework; path = System/Library/Frameworks/WatchConnectivity.framework; sourceTree = SDKROOT; };
 		9BEF281B1D38B28900EB4A31 /* QRblue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = QRblue.png; sourceTree = "<group>"; };
 		9BEF281D1D38B49300EB4A31 /* Mapablue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Mapablue.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,6 +130,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BA5B5761D3D62940011A30C /* WatchConnectivity.framework in Frameworks */,
+				9BA5B5741D3D62800011A30C /* CoreLocation.framework in Frameworks */,
+				9BA5B5721D3D59F00011A30C /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,6 +149,9 @@
 		9B2FC1CE1D32FAF300ED63CD = {
 			isa = PBXGroup;
 			children = (
+				9BA5B5751D3D62940011A30C /* WatchConnectivity.framework */,
+				9BA5B5731D3D62800011A30C /* CoreLocation.framework */,
+				9BA5B5711D3D59F00011A30C /* MapKit.framework */,
 				9B2FC1D91D32FAF300ED63CD /* Final */,
 				9B2FC1ED1D32FAF300ED63CD /* Final WatchKit App */,
 				9B2FC1FC1D32FAF400ED63CD /* Final WatchKit Extension */,
@@ -200,7 +210,6 @@
 				9B2FC1FF1D32FAF400ED63CD /* ExtensionDelegate.swift */,
 				9B2FC2011D32FAF400ED63CD /* Assets.xcassets */,
 				9B2FC2031D32FAF400ED63CD /* Info.plist */,
-				9BA5B5691D3C2A780011A30C /* DetalleInterfaceController.swift */,
 			);
 			path = "Final WatchKit Extension";
 			sourceTree = "<group>";
@@ -292,6 +301,9 @@
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 0;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 1;
 							};
 						};
 					};
@@ -387,7 +399,6 @@
 			files = (
 				9BA5B55A1D396B040011A30C /* Rutas.xcdatamodeld in Sources */,
 				9B2FC2001D32FAF400ED63CD /* ExtensionDelegate.swift in Sources */,
-				9BA5B56A1D3C2A780011A30C /* DetalleInterfaceController.swift in Sources */,
 				9B2FC1FE1D32FAF400ED63CD /* InterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

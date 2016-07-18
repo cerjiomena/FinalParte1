@@ -8,20 +8,30 @@
 
 import UIKit
 import MapKit
+import WatchConnectivity
+import CoreLocation
 
-class DetalleRutaViewController: UIViewController, MKMapViewDelegate {
+class DetalleRutaViewController: UIViewController, MKMapViewDelegate, WCSessionDelegate {
 
     var rutas: String?
     
     @IBOutlet weak var mapa: MKMapView!
     private var origenCentral: MKMapItem!
+    var watchSession : WCSession?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         mapa.delegate = self
+        
+        if(WCSession.isSupported()){
+            watchSession = WCSession.defaultSession()
+            watchSession!.delegate = self
+            watchSession!.activateSession()
+        }
 
         desglosarPuntos()
+       
         // Do any additional setup after loading the view.
     }
 
@@ -111,35 +121,6 @@ class DetalleRutaViewController: UIViewController, MKMapViewDelegate {
 
         }
         
-        /*
-        
-        for (j, row) in (arreglo?.enumerate())! {
-            
-            /*var columna = row.componentsSeparatedByString(",")
-            
-            let puntoCoor = CLLocationCoordinate2D(latitude: Double(columna[1])!, longitude:  Double(columna[2])!)
-            var puntoLugar = MKPlacemark(coordinate: puntoCoor, addressDictionary: nil)
-            origen = MKMapItem(placemark: puntoLugar)
-            origen.name = columna[0]*/
-            
-            origen = obtenerPunto(row)
-            
-           
-            
-            
-            if(((arreglo?.count)! > 1) && (j <= (arreglo?.count)!-1)) {
-                destino = obtenerPunto(arreglo![j+1])
-                
-            } else {
-                destino = origen
-                
-                origenCentral = origen
-            }
-            
-            self.obtenerRuta(origen!, destino:  destino!)
-            
-        }
-        */
     }
     
     func obtenerPunto(row: String) -> MKMapItem {
@@ -159,6 +140,15 @@ class DetalleRutaViewController: UIViewController, MKMapViewDelegate {
 
     }
 
+    @IBAction func enviarW(sender: AnyObject) {
+        print("entre")
+        do {
+            //watchSession.se
+            try watchSession?.updateApplicationContext(["message" : String(rutas)])
+        } catch let error as NSError {
+            NSLog("Updating the context failed: " + error.localizedDescription)
+        }
+    }
     /*
     // MARK: - Navigation
 
