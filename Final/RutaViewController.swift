@@ -21,6 +21,8 @@ class RutaViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     private var origen: MKMapItem!
     private var destino: MKMapItem!
     private var contadorPines: Int = 0
+    private var lugar = ""
+    private var estaEscribiendoNombrePunto = false
     
     private let reuseIdentifier = "miIdentificador"
     
@@ -39,9 +41,9 @@ class RutaViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         distanciaRecorrida = 0.0
         pin = nil
         //para agregar los pines
-        let tap = UILongPressGestureRecognizer(target: self, action: #selector(RutaViewController.tapMap))
+        /*let tap = UILongPressGestureRecognizer(target: self, action: #selector(RutaViewController.tapMap))
         tap.minimumPressDuration = 0.2
-        mapa.addGestureRecognizer(tap)
+        mapa.addGestureRecognizer(tap)*/
        
     }
     
@@ -92,6 +94,26 @@ class RutaViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         
         
         mapa.setRegion(region, animated: true)
+        
+        
+        if estaEscribiendoNombrePunto {
+            estaEscribiendoNombrePunto = false
+            punto.latitude = posicionActual.coordinate.latitude
+            punto.longitude = posicionActual.coordinate.longitude
+            let pin = MKPointAnnotation()
+            pin.title = String(lugar)
+            pin.subtitle = "lat:\(punto.latitude), long:\(punto.longitude)"
+            pin.coordinate = punto
+            mapa.addAnnotation(pin)
+            
+            let nuevoPunto = [punto.latitude, punto.longitude]
+            puntosNombres.append(pin.title!)
+            puntosColeccion.append(nuevoPunto)
+
+            
+        }
+        
+        
         
     }
     
@@ -190,6 +212,7 @@ class RutaViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     
     
     /* Metodo para poner el pin en pantalla */
+    //@Deprecated
     func tapMap(gestureRecognizer:UIGestureRecognizer){
         let touchPoint = gestureRecognizer.locationInView(self.mapa)
         let newCoord:CLLocationCoordinate2D = mapa.convertPoint(touchPoint, toCoordinateFromView: self.mapa)
@@ -207,16 +230,6 @@ class RutaViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     }
     
     
-    
-    @IBAction func showPicsOptions(sender: AnyObject) {
-        
-        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let fvc: FotosViewController = storyboard.instantiateViewControllerWithIdentifier("Fotos") as! FotosViewController
-        fvc.view.backgroundColor = UIColor.darkGrayColor()
-        fvc.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
-        
-        self.presentViewController(fvc, animated: true, completion: nil)
-    }
     
     @IBAction func showRouteOptions(sender: AnyObject) {
         
@@ -236,11 +249,6 @@ class RutaViewController: UIViewController, CLLocationManagerDelegate, MKMapView
              
              self.presentViewController(lvc, animated: true, completion: nil)
             
-            /*let lvc: ListadoRutasController = storyboard.instantiateViewControllerWithIdentifier("listadoRutas") as! ListadoRutasController
-            lvc.view.backgroundColor = UIColor.darkGrayColor()
-            lvc.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
-            
-            self.presentViewController(lvc, animated: true, completion: nil)*/
 
         })
         let saveAction = UIAlertAction(title: "Guardar ruta", style: .Default, handler: {
@@ -272,5 +280,31 @@ class RutaViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         // 5
         self.presentViewController(optionMenu, animated: true, completion: nil)
     }
+    
+    @IBAction func agregarPuntoEnPosicionActual(sender: AnyObject) {
+        
+        //1. Create the alert controller.
+        let alert = UIAlertController(title: "Agregar Punto Actual", message: "Teclea el nombre", preferredStyle: .Alert)
+        
+        //2. Add the text field. You can configure it however you need.
+        alert.addTextFieldWithConfigurationHandler({ (textField) -> Void in
+            textField.placeholder = "nombre punto"
+        })
+        
+        //3. Grab the value from the text field, and print it when the user clicks OK.
+        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+            let textField = alert.textFields![0] as UITextField
+            self.lugar = textField.text!
+            self.estaEscribiendoNombrePunto = true
+        }))
+        
+         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default, handler: nil))
+        
+        // 4. Present the alert.
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+
+
 
 }

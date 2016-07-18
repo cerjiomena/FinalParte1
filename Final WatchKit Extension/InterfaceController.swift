@@ -58,9 +58,13 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     }*/
     
     func session(session: WCSession, didReceiveApplicationContext applicationContext: [String : AnyObject]){
+        
+        dispatch_async(dispatch_get_main_queue(), {
+            self.rutas  = applicationContext["message"] as? String
+            self.desglosarPuntos()
 
-        self.rutas  = applicationContext["message"] as? String
-        desglosarPuntos()
+        })
+
         
     }
     

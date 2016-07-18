@@ -28,12 +28,15 @@
             <objects>
                 <tableViewController storyboardIdentifier="lisadoRutas" id="rKp-oi-cQu" customClass="ListadoRutasController" customModule="Final" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="3rN-eo-LmQ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" rowHeight="90" id="E1y-xr-eJ0" userLabel="Cell">
+                                <rect key="frame" x="0.0" y="92" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="E1y-xr-eJ0" id="QGH-P0-ck0">
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="89"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cPr-VQ-WDZ">
@@ -80,6 +83,7 @@
                         <viewControllerLayoutGuide type="bottom" id="95Z-of-D2m"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="VUi-oS-Wnj">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="flw-ab-loG">
@@ -115,13 +119,13 @@
                                 <exclude reference="dWM-AV-RBQ"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="2vR-xj-dcA"/>
+                                <exclude reference="d3s-Xg-i3x"/>
                                 <exclude reference="6C5-H7-aJk"/>
                                 <exclude reference="FBS-B9-AJQ"/>
                                 <exclude reference="WHM-pg-bUP"/>
                                 <exclude reference="sLi-Ib-nxb"/>
                                 <exclude reference="yHN-j0-wNw"/>
-                                <exclude reference="2vR-xj-dcA"/>
-                                <exclude reference="d3s-Xg-i3x"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -130,13 +134,13 @@
                                 <include reference="dWM-AV-RBQ"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="2vR-xj-dcA"/>
+                                <include reference="d3s-Xg-i3x"/>
                                 <include reference="6C5-H7-aJk"/>
                                 <include reference="FBS-B9-AJQ"/>
                                 <include reference="WHM-pg-bUP"/>
                                 <include reference="sLi-Ib-nxb"/>
                                 <include reference="yHN-j0-wNw"/>
-                                <include reference="2vR-xj-dcA"/>
-                                <include reference="d3s-Xg-i3x"/>
                             </mask>
                         </variation>
                     </view>
@@ -628,10 +632,10 @@
                             <constraint firstItem="Of0-sT-4WR" firstAttribute="top" secondItem="8Lt-ie-5fe" secondAttribute="bottom" id="dOd-Pt-8e5"/>
                             <constraint firstItem="RU3-P9-chp" firstAttribute="top" secondItem="PbF-jT-4s0" secondAttribute="bottom" constant="8" symbolic="YES" id="dSS-PT-OJ1"/>
                             <constraint firstItem="U98-bn-WsS" firstAttribute="top" secondItem="hEW-N9-7TK" secondAttribute="bottom" constant="8" symbolic="YES" id="m5d-Et-0yn">
-                                <variation key="widthClass=compact" constant="56"/>
+                                <variation key="widthClass=compact" constant="8"/>
                             </constraint>
                             <constraint firstItem="U98-bn-WsS" firstAttribute="centerX" secondItem="hEW-N9-7TK" secondAttribute="centerX" id="rN1-ac-tH4">
-                                <variation key="widthClass=compact" constant="1"/>
+                                <variation key="widthClass=compact" constant="0.0"/>
                             </constraint>
                             <constraint firstItem="hEW-N9-7TK" firstAttribute="leading" secondItem="RU3-P9-chp" secondAttribute="leading" id="tgY-ek-pAM">
                                 <variation key="widthClass=compact" constant="0.0"/>
@@ -728,7 +732,7 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W0z-lR-nyH">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
-                                    <barButtonItem width="105" style="plain" systemItem="fixedSpace" id="XXt-0p-bx7"/>
+                                    <barButtonItem width="116" style="plain" systemItem="fixedSpace" id="XXt-0p-bx7"/>
                                     <barButtonItem image="mapa-solo" id="vGr-Jq-4Mc">
                                         <connections>
                                             <action selector="showRouteOptions:" destination="qJU-90-20U" id="1SK-Ac-hpE"/>
@@ -744,6 +748,21 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="barTintColor" white="0.4170399904" alpha="1" colorSpace="calibratedWhite"/>
                             </toolbar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RBm-Xl-QuD">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <items>
+                                    <barButtonItem systemItem="add" id="eRQ-4a-rhO">
+                                        <connections>
+                                            <action selector="agregarPuntoEnPosicionActual:" destination="qJU-90-20U" id="GJ0-Qs-yiA"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="28" width="400" height="44"/>
+                                </variation>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -757,6 +776,16 @@
                             <constraint firstItem="W0z-lR-nyH" firstAttribute="leading" secondItem="MrN-3K-mSq" secondAttribute="leadingMargin" constant="-20" id="k8Z-PU-kt5"/>
                             <constraint firstItem="W0z-lR-nyH" firstAttribute="trailing" secondItem="43n-CQ-5En" secondAttribute="trailing" id="oEb-Hk-XRU"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="RBm-Xl-QuD"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="RBm-Xl-QuD"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="mapa" destination="43n-CQ-5En" id="ti2-cu-WnQ"/>

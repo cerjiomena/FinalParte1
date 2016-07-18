@@ -9,7 +9,6 @@
 import UIKit
 import MapKit
 import WatchConnectivity
-import CoreLocation
 
 class DetalleRutaViewController: UIViewController, MKMapViewDelegate, WCSessionDelegate {
 
@@ -25,6 +24,7 @@ class DetalleRutaViewController: UIViewController, MKMapViewDelegate, WCSessionD
         mapa.delegate = self
         
         if(WCSession.isSupported()){
+           
             watchSession = WCSession.defaultSession()
             watchSession!.delegate = self
             watchSession!.activateSession()
@@ -141,9 +141,8 @@ class DetalleRutaViewController: UIViewController, MKMapViewDelegate, WCSessionD
     }
 
     @IBAction func enviarW(sender: AnyObject) {
-        print("entre")
+        
         do {
-            //watchSession.se
             try watchSession?.updateApplicationContext(["message" : String(rutas)])
         } catch let error as NSError {
             NSLog("Updating the context failed: " + error.localizedDescription)

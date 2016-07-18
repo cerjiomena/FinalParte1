@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		9B0C8A611D353E2700C3458B /* ListadoRutasController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0C8A601D353E2700C3458B /* ListadoRutasController.swift */; };
 		9B0C8A631D3552E700C3458B /* RutaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0C8A621D3552E700C3458B /* RutaViewController.swift */; };
+		9B11AC2E1D3D7A6F000B9BC1 /* WatchConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B11AC2D1D3D7A6F000B9BC1 /* WatchConnectivity.framework */; };
+		9B11AC301D3D7A79000B9BC1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B11AC2F1D3D7A79000B9BC1 /* CoreLocation.framework */; };
+		9B11AC321D3D7A84000B9BC1 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B11AC311D3D7A84000B9BC1 /* CoreMotion.framework */; };
+		9B11AC341D3D7A8D000B9BC1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B11AC331D3D7A8D000B9BC1 /* MapKit.framework */; };
 		9B2FC1DD1D32FAF300ED63CD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2FC1DC1D32FAF300ED63CD /* ViewController.swift */; };
 		9B2FC1E21D32FAF300ED63CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B2FC1E11D32FAF300ED63CD /* Assets.xcassets */; };
 		9B2FC1E51D32FAF300ED63CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B2FC1E31D32FAF300ED63CD /* LaunchScreen.storyboard */; };
@@ -36,9 +40,6 @@
 		9BA5B5641D3B705B0011A30C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BA5B5631D3B705B0011A30C /* Main.storyboard */; };
 		9BA5B56B1D3C31E10011A30C /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B2FC1EE1D32FAF400ED63CD /* Interface.storyboard */; };
 		9BA5B56E1D3CB3E40011A30C /* DetalleRutaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA5B56D1D3CB3E40011A30C /* DetalleRutaViewController.swift */; };
-		9BA5B5721D3D59F00011A30C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BA5B5711D3D59F00011A30C /* MapKit.framework */; };
-		9BA5B5741D3D62800011A30C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BA5B5731D3D62800011A30C /* CoreLocation.framework */; };
-		9BA5B5761D3D62940011A30C /* WatchConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BA5B5751D3D62940011A30C /* WatchConnectivity.framework */; };
 		9BEF281C1D38B28900EB4A31 /* QRblue.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BEF281B1D38B28900EB4A31 /* QRblue.png */; };
 		9BEF281E1D38B49300EB4A31 /* Mapablue.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BEF281D1D38B49300EB4A31 /* Mapablue.png */; };
 /* End PBXBuildFile section */
@@ -88,6 +89,10 @@
 /* Begin PBXFileReference section */
 		9B0C8A601D353E2700C3458B /* ListadoRutasController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListadoRutasController.swift; sourceTree = "<group>"; };
 		9B0C8A621D3552E700C3458B /* RutaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RutaViewController.swift; sourceTree = "<group>"; };
+		9B11AC2D1D3D7A6F000B9BC1 /* WatchConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchConnectivity.framework; path = System/Library/Frameworks/WatchConnectivity.framework; sourceTree = SDKROOT; };
+		9B11AC2F1D3D7A79000B9BC1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		9B11AC311D3D7A84000B9BC1 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		9B11AC331D3D7A8D000B9BC1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		9B2FC1D71D32FAF300ED63CD /* Final.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Final.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B2FC1DC1D32FAF300ED63CD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9B2FC1E11D32FAF300ED63CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -118,9 +123,6 @@
 		9BA5B5631D3B705B0011A30C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		9BA5B56C1D3C4A3C0011A30C /* Final.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Final.entitlements; sourceTree = "<group>"; };
 		9BA5B56D1D3CB3E40011A30C /* DetalleRutaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetalleRutaViewController.swift; sourceTree = "<group>"; };
-		9BA5B5711D3D59F00011A30C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		9BA5B5731D3D62800011A30C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		9BA5B5751D3D62940011A30C /* WatchConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchConnectivity.framework; path = System/Library/Frameworks/WatchConnectivity.framework; sourceTree = SDKROOT; };
 		9BEF281B1D38B28900EB4A31 /* QRblue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = QRblue.png; sourceTree = "<group>"; };
 		9BEF281D1D38B49300EB4A31 /* Mapablue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Mapablue.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -130,9 +132,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9BA5B5761D3D62940011A30C /* WatchConnectivity.framework in Frameworks */,
-				9BA5B5741D3D62800011A30C /* CoreLocation.framework in Frameworks */,
-				9BA5B5721D3D59F00011A30C /* MapKit.framework in Frameworks */,
+				9B11AC341D3D7A8D000B9BC1 /* MapKit.framework in Frameworks */,
+				9B11AC321D3D7A84000B9BC1 /* CoreMotion.framework in Frameworks */,
+				9B11AC301D3D7A79000B9BC1 /* CoreLocation.framework in Frameworks */,
+				9B11AC2E1D3D7A6F000B9BC1 /* WatchConnectivity.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,9 +152,10 @@
 		9B2FC1CE1D32FAF300ED63CD = {
 			isa = PBXGroup;
 			children = (
-				9BA5B5751D3D62940011A30C /* WatchConnectivity.framework */,
-				9BA5B5731D3D62800011A30C /* CoreLocation.framework */,
-				9BA5B5711D3D59F00011A30C /* MapKit.framework */,
+				9B11AC331D3D7A8D000B9BC1 /* MapKit.framework */,
+				9B11AC311D3D7A84000B9BC1 /* CoreMotion.framework */,
+				9B11AC2F1D3D7A79000B9BC1 /* CoreLocation.framework */,
+				9B11AC2D1D3D7A6F000B9BC1 /* WatchConnectivity.framework */,
 				9B2FC1D91D32FAF300ED63CD /* Final */,
 				9B2FC1ED1D32FAF300ED63CD /* Final WatchKit App */,
 				9B2FC1FC1D32FAF400ED63CD /* Final WatchKit Extension */,
