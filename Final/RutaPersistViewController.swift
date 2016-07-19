@@ -20,6 +20,10 @@ class RutaPersistViewController: UIViewController,  UITextViewDelegate {
     weak var rutaViewController: RutaViewController?
     
     var contexto : NSManagedObjectContext? = nil
+    
+    var requeridos: [String] = []
+    
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +71,8 @@ class RutaPersistViewController: UIViewController,  UITextViewDelegate {
 
     @IBAction func saveRoute(sender: AnyObject) {
         let nuevaRuta = NSEntityDescription.insertNewObjectForEntityForName("Ruta", inManagedObjectContext: self.contexto!)
+        
+        if estanLosRequeridos() {
         
         nuevaRuta.setValue(nombreRuta.text, forKey: "nombre")
         nuevaRuta.setValue(descRuta.text, forKey: "descripcion")
@@ -129,8 +135,7 @@ class RutaPersistViewController: UIViewController,  UITextViewDelegate {
             abort()
         }
 
-        
-        //nuevaRuta.setValue(UIImageJPEGRepresentation(self.portadaImagen.image!, 1.0), forKey: "portada")
+        }
     }
     
     @IBAction func textFieldDoneEditing() {
@@ -164,4 +169,54 @@ class RutaPersistViewController: UIViewController,  UITextViewDelegate {
     }*/
     
 
+    func estanLosRequeridos() -> Bool {
+       
+        self.requeridos = []
+        
+        if(nombreRuta.text!.isEmpty) {
+            
+            requeridos.append("nombre")
+        }
+        
+        if(descRuta.text!.isEmpty) {
+            
+            requeridos.append("descripción")
+        }
+        
+        
+        if(self.fotoVista.image == nil) {
+            
+            print("falta imagen")
+        }
+        
+        let imageData: NSData = UIImagePNGRepresentation(self.fotoVista.image!)!
+        
+        let imageData2: NSData = UIImagePNGRepresentation(UIImage(named: "default-placeholder")!)!
+        
+        
+        if (imageData.isEqual(imageData2)) {
+            requeridos.append("foto")
+        }
+        
+        if(rutaViewController!.puntosColeccion.isEmpty) {
+             requeridos.append("pines")
+        }
+
+        
+        
+        if(requeridos.count > 0) {
+            
+            let alertController = UIAlertController(title: "Hey, te hace falta seleccionar:", message: requeridos.joinWithSeparator(","), preferredStyle: .Alert)
+            let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+            alertController.addAction(defaultAction)
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
+            
+            return false
+        } else {
+            
+            return true
+        }
+
+    }
 }
